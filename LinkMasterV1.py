@@ -2,6 +2,9 @@ import os
 import sys
 import ctypes
 import subprocess
+import markdown
+import markdown2
+from helpfile import get_html_content
 from PyQt5.QtWidgets import QApplication, QSpacerItem, QWidget, QSizePolicy, QVBoxLayout, QPushButton, QLabel, QHBoxLayout, QFileDialog, QMessageBox, QTextEdit
 from PyQt5.QtGui import QColor, QCursor, QFont
 from PyQt5.QtCore import Qt, QFileInfo
@@ -85,6 +88,7 @@ class MyApp(QWidget):
         layout.addWidget(self.junctionButton, alignment=Qt.AlignCenter)
         layout.addWidget(self.symlinkButton, alignment=Qt.AlignCenter)
         layout.addWidget(self.directoryLinkButton, alignment=Qt.AlignCenter)
+        layout.addWidget(self.generateButton, alignment=Qt.AlignCenter)
 
         if not self.isAdmin():
             QMessageBox.warning(self, 'Warning', 'Administrator privileges are required for use.')
@@ -96,10 +100,11 @@ class MyApp(QWidget):
             return False
 
     def showHelp(self):
-        self.help_text = "this is a readme"
+        self.help_text = get_html_content()
         self.help_window = QWidget()
         self.help_window.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.help_window.setStyleSheet("background-color: #2b2b2b; color: #a9b7c6;")
+        self.help_window.setFixedWidth(350)
 
         help_text_edit = QTextEdit()
         help_text_edit.setReadOnly(True)
@@ -108,6 +113,10 @@ class MyApp(QWidget):
         ok_button = QPushButton("OK")
         ok_button.setFixedSize(50, 50)
         ok_button.clicked.connect(self.help_window.close)
+        ok_button.setStyleSheet("border: 1px dotted white;")
+        font = QFont('Verdana', 12)
+        font.setBold(True)
+        ok_button.setFont(font)
 
         layout = QVBoxLayout()
         layout.addWidget(help_text_edit)

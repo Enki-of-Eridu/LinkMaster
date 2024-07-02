@@ -1,22 +1,24 @@
-# Directory Junctions, Symlinks, and Directory Links Creator
+# LinkMaster
 
-This is a simple application that allows you to create directory junctions, symlinks, and directory links on Windows.
+## Description
+LinkMaster is a Python-based GUI application that allows users to create different types of links between directories and files. It provides an easy-to-use interface for creating directory junctions, symbolic links, and directory links.
 
 ## Features
+- Create Directory Junctions
+- Create Symbolic Links
+- Create Directory Links
+- Generate Links
 
-- Create directory junctions, symlinks, and directory links with a simple GUI.
-- Check for administrator privileges at startup.
-- Display the selected source and target files/directories.
-- Handle errors and display error messages.
+## Installation
+1. Download the latest release from the GitHub repository.
+2. Navigate to the download location and double-click the executable file to run the program.
 
 ## Usage
-
-1. Download and run the executable file.
-2. Select the type of link you want to create (directory junction, symlink, or directory link).
-3. Select the source file/directory and the target file/directory.
-4. Click the 'Run' button to create the link.
+1. Open the LinkMaster application.
+2. Click the type of link you want to create: Directory Junction, Symbolic Link, or Directory Link.
+3. When prompted, select the source and target directories or files using the provided fields.
+4. Click the 'Generate Links' button to create the link.
 
 ## Requirements
-
 - Windows operating system
-- Administrator privileges
+- Administrator privileges are required for use.
